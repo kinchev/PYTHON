@@ -1,3 +1,2 @@
-# PYYHON
-
-Education
+# PYTHON
+python_education
