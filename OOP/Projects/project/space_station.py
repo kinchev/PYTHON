@@ -1,17 +1,19 @@
 import counter as counter
 
-from Project_1.astronaut.astronaut_repository import AstronautRepository
-from Project_1.astronaut.biologist import Biologist
-from Project_1.astronaut.geodesist import Geodesist
-from Project_1.astronaut.meteorologist import Meteorologist
-from Project_1.planet.planet import Planet
-from Project_1.planet.planet_repository import PlanetRepository
+from project.astronaut.astronaut_repository import AstronautRepository
+from project.astronaut.biologist import Biologist
+from project.astronaut.geodesist import Geodesist
+from project.astronaut.meteorologist import Meteorologist
+from project.planet.planet import Planet
+from project.planet.planet_repository import PlanetRepository
 
 
 class SpaceStation:
     def __init__(self):
         self.astronaut_repository = AstronautRepository()
         self.planet_repository = PlanetRepository()
+        self.failed_mission = 0
+        self.successful_mission = 0
 
     def add_astronaut(self, astronaut_type: str, name: str):
         if self.astronaut_repository.find_by_name(name):
@@ -54,15 +56,23 @@ class SpaceStation:
             count = 0
             while astronaut.oxygen > 0 or len(planet.items) > 0:
                 astronaut.backpack.append(planet.items.pop())
-                count += 1
                 astronaut.breathe()
+                count += 1
         if len(planet.items) == 0:
+            self.successful_mission += 1
             return f"Planet: {planet_name} was explored. {astronauts} astronauts participated in collecting items."
         else:
+            self.failed_mission += 1
             return f'Mission is not completed.'
 
     def report(self):
-        pass
+        result = f'{self.successful_mission} successful missions!' + '\n'
+        result += f'{self.failed_mission} missions were not completed!' + '\n'
+        result += "Astronauts info:+'\n"
+        for astronaut in self.astronaut_repository.astronauts:
+            result += str(astronaut) + '\n'
+
+        return result.strip()
 
     def __create_astronaut(self, astronaut_type, name):
         if astronaut_type == Biologist.__name__:

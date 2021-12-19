@@ -1,4 +1,4 @@
-from Project_1.common.validator import Validator
+from project.common.validator import Validator
 
 
 class Planet:

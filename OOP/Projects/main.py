@@ -1,5 +1,5 @@
-from Project_1.astronaut.biologist import Biologist
-from Project_1.space_station import SpaceStation
+from project.astronaut.biologist import Biologist
+from project.space_station import SpaceStation
 
 print(Biologist.__name__)
 space_station=SpaceStation()

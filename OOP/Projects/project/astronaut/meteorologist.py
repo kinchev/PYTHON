@@ -1,4 +1,4 @@
-from Project_1.astronaut.astronaut import Astronaut
+from project.astronaut.astronaut import Astronaut
 
 
 class Meteorologist(Astronaut):

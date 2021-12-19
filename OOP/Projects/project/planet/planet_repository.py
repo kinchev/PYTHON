@@ -1,6 +1,6 @@
 import planets as planets
 
-from Project_1.planet.planet import Planet
+from project.planet.planet import Planet
 
 
 class PlanetRepository:

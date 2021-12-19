@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import self as self
 
-from Project_1.common.validator import Validator
+from project.common.validator import Validator
 
 
 class Astronaut(ABC):
@@ -27,3 +27,9 @@ class Astronaut(ABC):
 
     def increase_oxygen(self, amount):
         self.oxygen += amount
+
+    def __str__(self):
+        result = f'Name: {self.name}' + '\n'
+        result += f'Oxygen: {self.oxygen}' + '\n'
+        result += f"Backpack: {', '.join(self.backpack) if len(self.backpack) > 0 else 'none'}" + '\n'
+        return result
