@@ -2,8 +2,6 @@ from abc import ABC, abstractmethod
 
 import self as self
 
-from project.common.validator import Validator
-
 
 class Astronaut(ABC):
     @abstractmethod
