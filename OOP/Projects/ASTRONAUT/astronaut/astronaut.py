@@ -17,7 +17,7 @@ class Astronaut(ABC):
     @name.setter
     def name(self, value):
         if value.strip() == '':
-            Validator.raise_if_str_is_empty(value, 'Astronaut name cannot be empty string or whitespace')
+            raise Exception('Astronaut name cannot be empty string or whitespace')
         self.__name = value
 
     def breathe(self):
