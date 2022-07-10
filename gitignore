@@ -35,5 +35,7 @@ nosetests.xml
 .project
 .pydevproject
 
-envdev*
+envdev*0
 .virtualenv*
+
+.ipynb_checkpoints
